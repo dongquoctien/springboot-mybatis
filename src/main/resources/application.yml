@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1/students?createDatabaseIfNotExist=true
+    username: root
+    password: 123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: "classpath:app.demo.mybatis.repository/*.xml"
