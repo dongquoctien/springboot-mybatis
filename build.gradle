@@ -9,12 +9,24 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
+	mavenLocal()
 	mavenCentral()
+	maven {
+		url "https://repository.mulesoft.org/nexus/content/repositories/public/"
+	}
 }
 
 dependencies {
+	compileOnly('org.projectlombok:lombok')
+	annotationProcessor('org.projectlombok:lombok')
+
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
 	implementation 'io.projectreactor:reactor-core:3.5.0'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+	implementation 'org.json:json:20180130'
+	implementation 'com.github.everit-org.json-schema:org.everit.json.schema:1.9.1'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 

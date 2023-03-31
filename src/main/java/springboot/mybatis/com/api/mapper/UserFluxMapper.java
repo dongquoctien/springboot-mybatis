@@ -1,11 +1,9 @@
 package springboot.mybatis.com.api.mapper;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Scheduler;
+import springboot.mybatis.com.api.mapper.vo.UserListVo;
 import springboot.mybatis.com.api.mapper.vo.UserVo;
 
 import java.util.ArrayList;
@@ -17,24 +15,20 @@ import java.util.Map;
 public class UserFluxMapper {
 
     private final UserMapper userMapper;
-    //@Autowired
-    //@Qualifier("omotaScheduler")
-    //private Scheduler scheduler;
 
     public Mono<UserVo> getUser(Map map) {
 
         return Mono.fromCallable(() -> {
             UserVo data = userMapper.getUser(map);
             return data == null ? new UserVo() : data;
-        });//.subscribeOn(scheduler);
+        });
     }
 
-    public Mono<List<UserVo>> getAll(){
-
+    public Mono<List<UserListVo>> getAll(Map map){
         return Mono.fromCallable(() -> {
-            List<UserVo> dataList = userMapper.getAll();
-            return dataList == null ? new ArrayList<UserVo>() : dataList;
-        });//.subscribeOn(scheduler);
+            List<UserListVo> dataList = userMapper.getAll(map);
+            return dataList == null ? new ArrayList<UserListVo>() : dataList;
+        });
     }
 
 }

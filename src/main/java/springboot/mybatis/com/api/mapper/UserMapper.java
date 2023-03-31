@@ -1,6 +1,7 @@
 package springboot.mybatis.com.api.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import springboot.mybatis.com.api.mapper.vo.UserListVo;
 import springboot.mybatis.com.api.mapper.vo.UserVo;
 
 import java.util.List;
@@ -11,6 +12,6 @@ public interface UserMapper {
 
     UserVo getUser(Map map);
 
-    List<UserVo> getAll();
+    List<UserListVo> getAll(Map map);
 
 }
