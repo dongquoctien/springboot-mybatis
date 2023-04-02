@@ -13,5 +13,4 @@ public interface UserMapper {
     UserVo getUser(Map map);
 
     List<UserListVo> getAll(Map map);
-
 }

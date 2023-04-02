@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="springboot.mybatis.com.api.generated.UserEntityMapper">
+    <insert id="insertUser" parameterType="springboot.mybatis.com.api.generated.UserEntityMapper">
+    INSERT INTO USER ( AGE, NAME, PASSWORD)
+    VALUES (#{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateUser">
+     UPDATE USER
+     SET AGE = #{age,jdbcType=INTEGER},
+         NAME = #{age,jdbcType=INTEGER},
+         PASSWORD = #{password,jdbcType=VARCHAR}
+      WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM USER
+        WHERE ID = #{id}
+    </delete>
+</mapper>

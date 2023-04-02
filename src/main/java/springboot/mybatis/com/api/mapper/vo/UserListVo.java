@@ -11,4 +11,5 @@ public class UserListVo {
     private Integer id;
     private Integer age;
     private String password;
+    private String name;
 }
